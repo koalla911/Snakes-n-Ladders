@@ -1,0 +1,33 @@
+{
+    "name": "TouchUIControls",
+    "maps": [
+        {
+            "name": "TouchUI",
+            "id": "cf36a563-4792-45f4-a3ad-e67b1e0a589b",
+            "actions": [
+                {
+                    "name": "TouchUIMain",
+                    "type": "Button",
+                    "id": "93ca0b5d-0a35-4a92-8f02-63de46de734b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ac8176b8-0982-406f-b57a-c13c920f35ff",
+                    "path": "<Touchscreen>/touch*/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchUIMain",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
