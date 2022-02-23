@@ -9,9 +9,9 @@ namespace SnakesNLadders.Assets.Scripts.Level
 
         public delegate void TransitionNextLevel();
         public static event TransitionNextLevel OnTransitionNextLevel;
-        
+        /*
         public delegate void ExitPreviousLevel();
-        public static event ExitPreviousLevel OnExitPreviousLevel;
+        public static event ExitPreviousLevel OnExitPreviousLevel;*/
 
         private readonly string _characterTag = "Player";
         private readonly Vector3 _leap = new Vector3(0, 15, 0);
@@ -24,13 +24,13 @@ namespace SnakesNLadders.Assets.Scripts.Level
                 transform.position += _leap;
                 OnTransitionNextLevel?.Invoke();
             }
-            
         }
 
 
-        private void OnTriggerExit2D(Collider2D collision)
+        /*private void OnTriggerExit2D(Collider2D collision)
         {
             OnExitPreviousLevel?.Invoke();
-        }
+            Debug.Log(collision.gameObject.name);
+        }*/
     }
 }

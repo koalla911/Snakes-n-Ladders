@@ -1,0 +1,103 @@
+﻿using SnakesNLadders.Assets.Scripts.Character.CharacterStates;
+using SnakesNLadders.Assets.Scripts.Interactables;
+using SnakesNLadders.Assets.Scripts.Level;
+using System.Collections;
+using UnityEngine;
+
+namespace SnakesNLadders.Assets.Scripts.Friends.ScreenSnakes
+{
+    public class ScreenSpawnerLeft : MonoBehaviour
+    {
+        [SerializeField] private InteractableScreenSnake[] _interactablePrefabs;
+        [SerializeField] private StateTriggerDownfall _character;
+
+        private ConcreteScreenSpawner _spawner;
+        private int _poolCount = 5;
+        private Transform _parent;
+        private bool _autoExpand = false;
+
+        private Quaternion _rotation;
+        private bool _flipHor = true;
+        private bool _flipVer = false;
+        private Vector3 _offsetPosition;
+
+        private float _waitForSec = 3f;
+        private WaitForSeconds _waitFor;
+        private int _numberOfActiveSnakes;
+
+        private bool _isSnakeActivate = true;
+
+        private Vector3 _targetAppearance;
+        private float _snakeActiveSpeed = 2f;
+        private float _snakeAnimationDuration = 3.5f;
+
+
+        private void OnEnable()
+        {
+            _character.OnCharacterDisable += PauseSnakes;
+
+        }
+
+
+        private void Awake()
+        {
+            _targetAppearance = new Vector3(15f, 0, 0f);
+
+            _waitFor = new WaitForSeconds(_waitForSec);
+
+            _parent = transform;
+
+            _spawner = new ConcreteScreenSpawner(_interactablePrefabs, _poolCount, _parent, _autoExpand);
+            _spawner.SpawnerInstanceTemplate();
+        }
+
+
+        private void Start()
+        {
+            StartCoroutine(SnakeActivate());
+        }
+
+
+        private void PauseSnakes()
+        {
+            _isSnakeActivate = false;
+        }
+
+
+        private IEnumerator SnakeActivate()
+        {
+            while (_isSnakeActivate)
+            {
+                yield return _waitFor;
+
+                float offsetY = Random.Range(-7, 8);
+                float offsetZ = Random.Range(-1, 1);
+                _offsetPosition = new Vector3(0f, offsetY, offsetZ);
+
+                StartCoroutine(SetActiveCoroutine(_offsetPosition, _rotation, _flipHor, _flipVer));
+
+                yield return _waitFor;
+            }
+        }
+
+
+        public IEnumerator SetActiveCoroutine(Vector3 offsetPosition, Quaternion rotation, bool flipHor, bool flipVer)
+        {
+            var activeObject = _spawner.ConcreteSpawnerActivate(offsetPosition, rotation, flipHor, flipVer);
+            var interactable = activeObject.gameObject.GetComponent<InteractableScreenSnake>();
+            interactable.PopulationActivate(_targetAppearance, _snakeActiveSpeed, _snakeAnimationDuration);
+
+            Debug.Log("snake movement start");
+
+            yield return null;
+
+        }
+
+
+        private void OnDisable()
+        {
+            _character.OnCharacterDisable -= PauseSnakes;
+
+        }
+    }
+}

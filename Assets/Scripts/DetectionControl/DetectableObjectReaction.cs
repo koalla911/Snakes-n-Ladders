@@ -29,6 +29,7 @@ namespace SnakesNLadders.Assets.Scripts.InteractionAbstract
             _characterData = new CharacterStamina();
         }
 
+
         private void OnEnable()
         {
             _detectableObject.OnObjectDetected += Detected;

@@ -30,7 +30,7 @@ namespace SnakesNLadders.Assets.Scripts
             Ray ray = _camera.ScreenPointToRay(touchPosition);
 
             //RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero, Mathf.Infinity, _interactableLayerMask);
-            var hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, _interactableLayerMask);
+            var hit = Physics2D.GetRayIntersection(ray, 100, _interactableLayerMask);
 
             if (hit.collider != null)
             {

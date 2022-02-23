@@ -1,4 +1,5 @@
 ﻿using SnakesNLadders.Assets.Scripts.InteractionAbstract;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace SnakesNLadders.Assets.Scripts.InputControl
 
         private float _staminaValue;
 
+
         private void OnEnable()
         {
             _character.OnWeightChange += Stamina;
@@ -19,14 +21,26 @@ namespace SnakesNLadders.Assets.Scripts.InputControl
 
         private void Awake()
         {
-            _staminaValue = _character.MaxWeight / 100f;
-            _staminaImage.fillAmount = _staminaValue;
+            /*_staminaValue = _character.MaxWeight / 100f;
+            _staminaImage.fillAmount = _staminaValue;*/
+            StartCoroutine(PermanentValueChange());
         }
 
 
         private void Stamina(int currentWeight)
         {
             _staminaImage.fillAmount = _staminaValue - (currentWeight / 100f);
+        }
+
+        private IEnumerator PermanentValueChange()
+        {
+            while (true)
+            {
+                _staminaImage.fillAmount += 0.1f * Time.deltaTime;
+
+                yield return null;
+
+            }
         }
 
 

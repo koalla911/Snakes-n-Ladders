@@ -60,37 +60,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character\CharacterStates\StateTriggers\StateTriggerDownfall.cs" />
+    <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\ConcreteSpawner.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\ScreenSpawnerRight.cs" />
     <Compile Include="Assets\Scripts\FrameRate\LimitFrameRate.cs" />
     <Compile Include="Assets\Scripts\SingletoneData.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterParticle.cs" />
+    <Compile Include="Assets\Scripts\Friends\SnakeStates\Snake.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterEffects.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\StateTriggers\StateTriggerJump.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\CharacterBehaviorJump.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraPause.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\CharacterBehaviorDownfall.cs" />
     <Compile Include="Assets\Scripts\Ladder\LaddersSwitch.cs" />
     <Compile Include="Assets\Scripts\InputControl\UIBar.cs" />
-    <Compile Include="Assets\Scripts\Pooler\SnakeCollisionActivate.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolerPot\ActivePot.cs" />
     <Compile Include="Assets\Scripts\InputControl\InputControls.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractableFruit.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\InputControl\InputEvents.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraCollisionDetection.cs" />
+    <Compile Include="Assets\Scripts\Camera\CanvasCameraResolution.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\SnakeBehaviorDrop.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\StateTriggers\StateTriggerRise.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\ConcreteScreenSpawner.cs" />
     <Compile Include="Assets\Scripts\Interactables\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\CharacterBehaviorRise.cs" />
     <Compile Include="Assets\Scripts\Parallax\Parallax.cs" />
+    <Compile Include="Assets\Scripts\Interactables\InteractableScreenSnake.cs" />
     <Compile Include="Assets\Scripts\Pooler\ActivateCollision.cs" />
+    <Compile Include="Assets\Scripts\SoundEffectItem.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolMono.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\ScreenSpawnerLeft.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\StateTriggers\StateTriggerStart.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\SnakeBehaviorCrawl.cs" />
     <Compile Include="Assets\Scripts\Pooler\IPoolActivate.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractableVase.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractableTotem.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Scripts\InputControl\TouchDeterminate.cs" />
     <Compile Include="Assets\Scripts\DetectionControl\Detector.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\SnakeBehaviorSpawn.cs" />
@@ -98,18 +102,14 @@
     <Compile Include="Assets\Test.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\CharacterBehaviorStart.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\InitialBehaviorMap.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\ISnakeBehavior.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStateTrigger.cs" />
     <Compile Include="Assets\Scripts\Ladder\Ladder.cs" />
     <Compile Include="Assets\Scripts\InputControl\UIPause.cs" />
-    <Compile Include="Assets\Scripts\Pooler\PoolerPot\PoolActivateCoin.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\SnakeBehaviorDance.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterGroundCollider.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\InitialBehaviorMapSnake.cs" />
     <Compile Include="Assets\Scripts\DetectionControl\DetectorReaction.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\Scripts\SessionStates.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolerPot\ActiveCoin.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates\ICharacterBehavior.cs" />
@@ -123,37 +123,33 @@
     <Compile Include="Assets\Scripts\Level\LevelActivatorTrigger.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraResolution.cs" />
     <Compile Include="Assets\Scripts\DetectionControl\IDetector.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\ScreenSnakesCoroutine.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStamina.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolerPot\PoolActivatePot.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\SnakeBehaviorBounce.cs" />
     <Compile Include="Assets\Scripts\InputControl\UIScore.cs" />
     <Compile Include="Assets\Scripts\Friends\SnakeStates\Coroutine\CoroutineMovementSnake.cs" />
-    <Compile Include="Assets\Scripts\Friends\SnakeStates\Snake.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\AbstractSpawner.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolActivateTriggerSnake.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\AbstractScreenSpawner.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolMonoArray.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolActivateCoroutineSnake.cs" />
     <Compile Include="Assets\Scripts\DetectionControl\DetectableObject.cs" />
     <Compile Include="Assets\Scripts\DetectionControl\DetectableObjectReaction.cs" />
-    <Compile Include="Assets\Scripts\Camera\CanvasCameraResolution.cs" />
-    <Compile Include="Assets\Scripts\Interactables\InteractableScreenSnake.cs" />
-    <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\Friends\ScreenSnakes\ScreenSnakeMovementCoroutine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\DOTween\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\DOTween\DOTween.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\DOTween\DOTween.XML" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
@@ -387,9 +383,6 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity 2021.1.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="clipper_library">
       <HintPath>Library\PackageCache\com.unity.cinemachine@2.7.9\Runtime\ThirdParty\clipper_library.dll</HintPath>

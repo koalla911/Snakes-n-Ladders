@@ -6,15 +6,26 @@ namespace SnakesNLadders.Assets.Scripts
 {
     public class SessionStates : MonoBehaviour
     {
+        private string _currentScene;
+
+
+        private void Awake()
+        {
+            _currentScene = SceneManager.GetActiveScene().name;
+        }
+
 
         public void Restart()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("restart");
+            //SceneManager.LoadScene(_currentScene);
         }
 
         public void Exit()
         {
-            Application.Quit();
+            Debug.Log("quit");
+
+            //Application.Quit();
         }
     }
 }

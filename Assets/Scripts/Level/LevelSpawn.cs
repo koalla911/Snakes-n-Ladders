@@ -69,15 +69,9 @@ namespace SnakesNLadders.Assets.Scripts.Level
 
             LevelActivatorTrigger startLevelPotActivator = _startLevel.GetComponent<LevelActivatorTrigger>();
             startLevelPotActivator.DisactivatePot();
-            /*LevelActivatorTrigger finishLevelPotActivator = _finishLevel.GetComponent<LevelActivatorTrigger>();
-            finishLevelPotActivator.DisactivatePot();*/
 
             startLevelPosition.y = finishLevelPosition.y + _gap;
             _startLevel.transform.position = startLevelPosition;
-
-            /*LevelActivatorTrigger startLevelPotActivator = _startLevel.GetComponent<LevelActivatorTrigger>();
-            startLevelPotActivator.ActivatePot();*/
-            
 
             _finishLevel = _startLevel;
             LevelActivatorTrigger finishLevelPotActivator = _finishLevel.GetComponent<LevelActivatorTrigger>();
@@ -91,7 +85,6 @@ namespace SnakesNLadders.Assets.Scripts.Level
 
             for (int i = 0; i < _finishLevel.Activators.Length; i++)
             {
-                //_finishLevel.Activators[i].transform.position -= new Vector3(10, 0, 0);
                 _finishLevel.Activators[i].ActivatedCollision();
             }
 

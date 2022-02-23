@@ -13,27 +13,39 @@ public class Parallax : MonoBehaviour
     private readonly float _pixelPerUnit = 100f;
     private readonly float _perspectiveCoefficient = 10f;
 
-    private void Start()
+
+    private void Awake()
     {
         _startPositionY = transform.position.y;
         _mainCamera = Camera.main;
     }
 
-    private void FixedUpdate()
+
+    private void Start()
     {
-        float temporary = _mainCamera.transform.position.y * (1 - _parallaxEffect) + _perspectiveCoefficient;
-        float distance = _mainCamera.transform.position.y * _parallaxEffect;
+        StartCoroutine(ParallaxMovement());
+    }
 
-        transform.position = new Vector3(transform.position.x, _startPositionY + distance, transform.position.z);
-
-        if (temporary > _startPositionY + _boundLengthY / _pixelPerUnit)
+    private IEnumerator ParallaxMovement()
+    {
+        while (true)
         {
-            _startPositionY += _boundLengthY / _pixelPerUnit;
-        }
-        else if (temporary < _startPositionY - _boundLengthY / _pixelPerUnit)
-        {
-            _startPositionY -= _boundLengthY / _pixelPerUnit;
+            float temporary = _mainCamera.transform.position.y * (1 - _parallaxEffect) + _perspectiveCoefficient;
+            float distance = _mainCamera.transform.position.y * _parallaxEffect;
 
+            transform.position = new Vector3(transform.position.x, _startPositionY + distance, transform.position.z);
+
+            if (temporary > _startPositionY + _boundLengthY / _pixelPerUnit)
+            {
+                _startPositionY += _boundLengthY / _pixelPerUnit;
+            }
+            else if (temporary < _startPositionY - _boundLengthY / _pixelPerUnit)
+            {
+                _startPositionY -= _boundLengthY / _pixelPerUnit;
+
+            }
+
+            yield return null;
         }
     }
 }

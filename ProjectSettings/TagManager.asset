@@ -16,7 +16,7 @@ TagManager:
   - Stairs
   - 
   - 
-  - 
+  - CameraDetect
   - PlayerCollision
   - Player
   - LevelObserver

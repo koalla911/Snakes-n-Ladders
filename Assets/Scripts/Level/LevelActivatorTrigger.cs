@@ -14,7 +14,7 @@ namespace SnakesNLadders.Assets.Scripts.Level
 
         private void OnEnable()
         {
-            LevelObserver.OnExitPreviousLevel += SetTrigger;
+            LevelObserver.OnTransitionNextLevel += SetTrigger;
         }
 
 
@@ -29,7 +29,7 @@ namespace SnakesNLadders.Assets.Scripts.Level
             _activatePot.Disactivate();
         }
 
-
+        //TODO what is these activators mehtods?
         private void SetTrigger()
         {
             for (int i = 0; i < _activators.Length; i++)
@@ -43,7 +43,7 @@ namespace SnakesNLadders.Assets.Scripts.Level
 
         private void OnDisable()
         {
-            LevelObserver.OnExitPreviousLevel -= SetTrigger;
+            LevelObserver.OnTransitionNextLevel -= SetTrigger;
         }
     }
 }

@@ -5,20 +5,13 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
 {
     public class PoolerAlgorithm
     {
-        public int Point { get; set; }
-        public int Entity { get; set; }
+        private int _numberOfPoints;
+        private int _numberOfEntities;
 
-        private int[] _listOfA;
 
-        /*private int _a = 0;
-        private int _currentA = 0;
-        private int _n;
-        private int _k;*/
-
-        public PoolerAlgorithm(int point, int entity)
+        public PoolerAlgorithm(int numberOfPoints, int numberOfEntities)
         {
-            (Point, Entity) = (point, entity);
-            //(_k, _n) = (point, entity);
+            (_numberOfPoints, _numberOfEntities) = (numberOfPoints, numberOfEntities);
         }
 
 
@@ -27,12 +20,10 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
             int a = 0;
 
             int currentA = 0;
-            int n = Entity;
-            int k = Point;
+            int n = _numberOfEntities;
+            int k = _numberOfPoints;
 
-            //_listOfA = new int[Point];
-
-            for (int i = 0; i < Point - 1; i++)
+            for (int i = 0; i < _numberOfPoints - 1; i++)
             {
                 currentA = (n - a) - (k - (i + 1));
 
@@ -44,8 +35,6 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
             int lastNum = n - a;
 
             arrayToFill[k - 1] = lastNum;
-
-            //return _listOfA;
         }
     }
 }

@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 2503054362149001440}
   - component: {fileID: 1706495618711118600}
   - component: {fileID: 9082607781391624880}
-  - component: {fileID: 5721120188717055085}
   m_Layer: 24
   m_Name: Pot_3
   m_TagString: Untagged
@@ -158,22 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.01, y: 1.7}
   m_EdgeRadius: 0
---- !u!114 &5721120188717055085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397820379355505856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0017cf8c519a8324cb186587bf24fd6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 2528564801003945905, guid: b90a09d1ccbd37248b711392319d9141, type: 3}
-  _poolCountCoin: 10
-  _poolCountCoinActive: 10
-  _autoExpand: 0
 --- !u!1001 &3695812335093043046
 PrefabInstance:
   m_ObjectHideFlags: 0

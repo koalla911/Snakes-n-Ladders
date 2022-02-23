@@ -8,9 +8,16 @@ namespace SnakesNLadders.Assets.Scripts.Interactables
         [SerializeField] private GameObject _pot;
         [SerializeField] private ParticleSystem _potParticle;
 
-        private PoolActivateCoin _poolActivateCoin;
         private Collider2D _collider;
         private float _disactivateTime = 3f;
+        private PoolActivatePot _itemActive;
+
+
+        private void OnEnable()
+        {
+            _collider.enabled = true;
+            _pot.SetActive(true);
+        }
 
 
         private void Awake()
@@ -21,19 +28,17 @@ namespace SnakesNLadders.Assets.Scripts.Interactables
 
         public void ComponentReference()
         {
-            _poolActivateCoin = gameObject.GetComponent<PoolActivateCoin>();
             _collider = gameObject.GetComponent<BoxCollider2D>();
+            _itemActive = gameObject.GetComponentInParent<PoolActivatePot>();
+
         }
 
 
         public void Interact()
         {
-            StartCoroutine(_poolActivateCoin.SetActiveCoroutineCoin());
-            _collider.enabled = false;
-            _pot.SetActive(false);
-            _potParticle.Play();
+            _itemActive.ItemActivate(transform);
 
-            StartCoroutine(Utils.DisableAfterSeconds(_disactivateTime, gameObject));
+            gameObject.SetActive(false);
         }
     }
 }

@@ -12,15 +12,18 @@ namespace SnakesNLadders.Assets.Scripts
         public delegate void SnakeSpawned();
         public event SnakeSpawned OnSnakeSpawned;
 
+
         private void Awake()
         {
             _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         }
 
+
         private void SpawnEvent()
         {
             OnSnakeSpawned?.Invoke();
         }
+
 
         private void OnBecameInvisible()
         {

@@ -7,12 +7,24 @@ namespace SnakesNLadders.Assets.Scripts.Pooler.PoolerPot
     {
         [SerializeField] AnimationCurve _animationCurveY;
         [SerializeField] ParticleSystem _particle;
+        [SerializeField] AudioSource _audioCoin;
+        [SerializeField] AudioSource _audioActive;
+
+        private SpriteRenderer _sprite;
 
         private int _coinValue = 3;
 
         private float _spawnTime = 0.6f;
         private float _speed = .3f;
         private float _flyTime = 0.22f;
+        private PoolActivatePot _itemActiveSound;
+
+
+        private void Awake()
+        {
+            _itemActiveSound = gameObject.GetComponentInParent<PoolActivatePot>();
+
+        }
 
 
         public void CollectibleMovement(Transform target)
@@ -43,6 +55,8 @@ namespace SnakesNLadders.Assets.Scripts.Pooler.PoolerPot
 
             float time = 0;
 
+            _audioActive.Play();
+
             while (time < _spawnTime)
             {
                 Vector2 curve = new Vector2(posX, posY + _animationCurveY.Evaluate(time / _speed));
@@ -59,16 +73,20 @@ namespace SnakesNLadders.Assets.Scripts.Pooler.PoolerPot
         private IEnumerator FlyToTarget(Transform targetTransform)
         {
             transform.rotation = Quaternion.identity;
+            float timeOffset = Random.Range(-0.02f, 0.02f);
 
             float time = 0;
 
             while (transform.position != targetTransform.position)
             {
-                transform.position = Vector3.MoveTowards(transform.position, Vector3.Lerp(transform.position, targetTransform.position, time / _flyTime), time / _flyTime);
+                transform.position = Vector3.MoveTowards(transform.position, Vector3.Lerp(transform.position, targetTransform.position, time / (_flyTime + timeOffset)), time / (_flyTime + timeOffset));
                 time += Time.deltaTime;
 
                 yield return null;
             }
+
+            _itemActiveSound.ItemActivateSound();
         }
+
     }
 }

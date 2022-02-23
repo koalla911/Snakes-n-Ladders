@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 2843513549447220721}
   - component: {fileID: 6048284823715504557}
   - component: {fileID: 837588210681014102}
-  - component: {fileID: 8582134185691003041}
   m_Layer: 24
   m_Name: Pot_1
   m_TagString: Untagged
@@ -158,22 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pot: {fileID: 2843513548575199936}
   _potParticle: {fileID: 818274827789512664}
---- !u!114 &8582134185691003041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2843513549447220722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0017cf8c519a8324cb186587bf24fd6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 2528564801003945905, guid: b90a09d1ccbd37248b711392319d9141, type: 3}
-  _poolCountCoin: 10
-  _poolCountCoinActive: 10
-  _autoExpand: 0
 --- !u!1001 &2843513548650344785
 PrefabInstance:
   m_ObjectHideFlags: 0

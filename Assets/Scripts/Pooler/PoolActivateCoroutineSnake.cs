@@ -8,15 +8,16 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
 {
     public class PoolActivateCoroutineSnake
     {
-        public Transform[] ActivatePoints { get; set; }
-        public float ActivateTime { get; set; }
+        private Transform[] _activatePoints;
+        private float _activateSeconds;
+        private WaitForSeconds _activateTime;
+        private int _poolCount;
 
-        public int PoolCount { get; set; }
 
-
-        public PoolActivateCoroutineSnake(Transform[] activatePoints, float activateTime, int poolCount)
+        public PoolActivateCoroutineSnake(Transform[] activatePoints, float activateSeconds, int poolCount)
         {
-            (ActivatePoints, ActivateTime, PoolCount) = (activatePoints, activateTime, poolCount);
+            (_activatePoints, _activateSeconds, _poolCount) = (activatePoints, activateSeconds, poolCount);
+            _activateTime = new WaitForSeconds(_activateSeconds);
         }
 
 
@@ -26,17 +27,15 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
             {
                 for (int i = 0; i < coefficient[j]; i++)
                 {
-                    Snake snakeActive = pool.GetFreeElement();
-                    Rigidbody2D snakeActiveRigidBody = snakeActive.GetComponent<Rigidbody2D>();
-                    //CoroutineMovementSnake snakeMovement = snakeActive.GetComponent<CoroutineMovementSnake>();
-                    snakeActiveRigidBody.gravityScale = 0;
-                    snakeActive.transform.position = ActivatePoints[j].position;
+                    Snake objectActive = pool.GetFreeElement();
+                    Rigidbody2D activeRigidBody = objectActive.GetComponent<Rigidbody2D>();
+                    activeRigidBody.gravityScale = 0;
+                    objectActive.transform.position = _activatePoints[j].position;
 
-                    yield return new WaitForSeconds(ActivateTime);
+                    yield return _activateTime;
                 }
 
-                yield return new WaitForSeconds(ActivateTime);
-
+                yield return _activateTime;
             }
 
             yield break;

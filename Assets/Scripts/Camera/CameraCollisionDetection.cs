@@ -54,10 +54,10 @@ public class CameraCollisionDetection : MonoBehaviour
     }
 
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(_detectLine.position - _lineOffset, _detectLine.position + _lineOffset);
-    }
+    }*/
 
 }

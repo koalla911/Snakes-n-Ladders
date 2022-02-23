@@ -20,6 +20,7 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
         private Vector3 _positionOffset;
         private float _rotationSpeed = 5f;
 
+
         private void OnEnable()
         {
             _snakeSpawn.OnSnakeSpawned += StartMovement;

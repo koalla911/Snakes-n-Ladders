@@ -28,7 +28,7 @@ namespace SnakesNLadders.Assets.Scripts.InputControl
         {
             if (_pausePanel != null)
             {
-                _pauseCanvas.enabled = false;
+                _pauseCanvas.enabled = true;
             }
         }
 
