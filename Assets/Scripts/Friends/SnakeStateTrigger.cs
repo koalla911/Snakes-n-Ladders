@@ -30,7 +30,6 @@ namespace SnakesNLadders.Assets.Scripts
             if (_rigidbody.gravityScale > 0)
             {
                 gameObject.SetActive(false);
-
             }
         }
     }

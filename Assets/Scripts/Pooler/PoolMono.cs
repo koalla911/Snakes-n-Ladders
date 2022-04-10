@@ -14,9 +14,9 @@ namespace SnakesNLadders
         private List<T> _pool;
 
 
-        public PoolMono(T prefab, int count, Transform prefabPosition, bool autoExpand)
+        public PoolMono(T prefab, int count, Transform prefabParentPosition, bool autoExpand)
         {
-            (Prefab, PrefabPosition, AutoExpand) = (prefab, prefabPosition, autoExpand);
+            (Prefab, PrefabPosition, AutoExpand) = (prefab, prefabParentPosition, autoExpand);
 
             CreatePool(count);
         }

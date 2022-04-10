@@ -39,7 +39,7 @@ namespace SnakesNLadders.Assets.Scripts.Pooler.PoolerPot
 
             yield return StartCoroutine(FlyToTarget(targetTransform));
 
-            SingletoneData.SingletoneDataInstance.SetCoinValue(_coinValue);
+            //ScoreModel.SingletoneDataInstance.SetCoinValue(_coinValue);
 
             gameObject.SetActive(false);
         }

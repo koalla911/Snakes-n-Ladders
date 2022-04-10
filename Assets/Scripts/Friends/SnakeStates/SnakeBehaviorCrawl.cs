@@ -6,9 +6,8 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates
     {
         private readonly string _snakeTransitionCrawl = "_isCrawl";
 
-        public void EnterState(Snake snake)
+        public void EnterState(Snake snake, Rigidbody2D rigidbody, Transform transform, Animator animator)
         {
-            Animator animator = snake.GetComponent<Animator>();
             animator.SetBool(_snakeTransitionCrawl, true);
         }
 

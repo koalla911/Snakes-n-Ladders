@@ -1,6 +1,7 @@
 ﻿using SnakesNLadders.Assets.Scripts.Pooler;
 using SnakesNLadders.Assets.Scripts.Pooler.PoolerPot;
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace SnakesNLadders.Assets.Scripts.Level
@@ -9,12 +10,27 @@ namespace SnakesNLadders.Assets.Scripts.Level
     {
         [SerializeField] private PoolActivateTriggerSnake[] _activators;
         [SerializeField] private PoolActivatePot _activatePot;
-        public PoolActivateTriggerSnake[] Activators { get { return _activators; } }
+        [SerializeField] private GameObject _metersCount;
 
+        private TextMeshPro _metersText;
+        public PoolActivateTriggerSnake[] Activators { get { return _activators; } }
+        private int _meters;
 
         private void OnEnable()
         {
             LevelObserver.OnTransitionNextLevel += SetTrigger;
+        }
+
+
+        private void Awake()
+        {
+            _metersText = _metersCount.GetComponent<TextMeshPro>();
+        }
+
+        public void SetMeterCount(int meters)
+        {
+            _meters += meters;
+            _metersText.SetText("{0}", _meters);
         }
 
 
@@ -38,7 +54,6 @@ namespace SnakesNLadders.Assets.Scripts.Level
                 _activators[i].ActivateCollision.Triggered();
             }
         }
-
 
 
         private void OnDisable()

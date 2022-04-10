@@ -28,12 +28,6 @@ namespace SnakesNLadders.Assets.Scripts.Interactables
         }
 
 
-        /*private void OnEnable()
-        {
-            ScreenFollow();
-        }*/
-
-
         public void ComponentReference()
         {
             _target = GetComponentInParent<Transform>();
@@ -45,8 +39,10 @@ namespace SnakesNLadders.Assets.Scripts.Interactables
             _parcticle.Play();
             _hit += 1;
 
-            StartCoroutine(OutOfScreen(_targetAppearance, _speed, _animationDuration));
-
+            if (_hit >= 3)
+            {
+                StartCoroutine(OutOfScreen(_targetAppearance, _speed, _animationDuration));
+            }
         }
 
 
@@ -67,36 +63,5 @@ namespace SnakesNLadders.Assets.Scripts.Interactables
             StartCoroutine(ScreenSnakeMovementCoroutine.ScreenAppearance(gameObject, _targetAppearance, _speed, _animationDuration));
         }
 
-
-        /*private IEnumerator ScreenAppearance(Vector3 targetAppearance, float speed, float animationDuration)
-        {
-            float t = 0;
-
-            while (t < 1)
-            {
-                Vector3 sourcePosition = this.transform.position;
-                Vector3 targerPosition = this.transform.position + targetAppearance;
-                this.transform.position = Vector3.MoveTowards(sourcePosition, Vector3.Lerp(sourcePosition, targerPosition, speed), Time.deltaTime * speed);
-                t += Time.deltaTime / animationDuration;
-
-                yield return null;
-            }
-        }*/
-        
-
-        /*private IEnumerator ScreenFollow()
-        {
-            while (_hit < 3)
-            {
-                transform.position = _target.position;
-
-                 yield return null;
-            }
-
-            gameObject.SetActive(false);
-
-
-            yield break;
-        }*/
     }
 }

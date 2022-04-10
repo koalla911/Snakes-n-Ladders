@@ -27,6 +27,8 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
         private PoolerAlgorithm _poolAlgorithm;
         private int[] _listOfA;
 
+        private Transform _poolParent;
+
 
         private void OnEnable()
         {
@@ -36,8 +38,10 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
 
         private void Awake()
         {
+            _poolParent = GameObject.FindGameObjectWithTag("SnakePool").transform;
+
             _poolInstance = new PoolActivateCoroutineSnake(_activatePoints, _activateTime, _poolCount);
-            _pool = new PoolMono<Snake>(_snake, _poolCount, transform, _autoExpand);
+            _pool = new PoolMono<Snake>(_snake, _poolCount, _poolParent, _autoExpand);
             _poolAlgorithm = new PoolerAlgorithm(_activatePoints.Length, _poolCount);
             _listOfA = new int[_activatePoints.Length];
         }

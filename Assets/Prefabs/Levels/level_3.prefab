@@ -207,7 +207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.32, y: -7.54}
+  m_AnchoredPosition: {x: 4.1, y: -7.42}
   m_SizeDelta: {x: 3.6857, y: 2.8635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7935057021614055468
@@ -250,7 +250,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4935748625658412549
 MonoBehaviour:
@@ -283,8 +283,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293125487
-  m_fontColor: {r: 0.43458524, g: 0.8962264, b: 0.89212257, a: 1}
+    rgba: 4281808695
+  m_fontColor: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -409,6 +409,7 @@ MonoBehaviour:
   - {fileID: 7481845431201761144}
   - {fileID: 8872457820619856285}
   _activatePot: {fileID: 6453284676463403637}
+  _metersCount: {fileID: 8124987269504369244}
 --- !u!1001 &368033167970057314
 PrefabInstance:
   m_ObjectHideFlags: 0

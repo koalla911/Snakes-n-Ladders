@@ -12,10 +12,19 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates
 
         private ISnakeBehavior _currentBehavior;
 
+        private Rigidbody2D _snakeRigidbody;
+        private Transform _snakeTransform;
+        private Animator _snakeAnimator;
+
+
         private void Awake()
         {
             _behaviorMap = gameObject.GetComponent<InitialBehaviorMapSnake>();
+            _snakeRigidbody = gameObject.GetComponent<Rigidbody2D>();
+            _snakeTransform = gameObject.GetComponent<Transform>();
+            _snakeAnimator = gameObject.GetComponent<Animator>();
         }
+
 
         private void SwitchBehavior(ISnakeBehavior newBehaviour)
         {
@@ -25,15 +34,9 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates
             }
 
             _currentBehavior = newBehaviour;
-            _currentBehavior.EnterState(this);
+            _currentBehavior.EnterState(this, _snakeRigidbody, _snakeTransform, _snakeAnimator);
         }
 
-
-        internal void SetBehaviorSpawn()
-        {
-            ISnakeBehavior behavior = _behaviorMap.GetBehaviour<SnakeBehaviorSpawn>();
-            SwitchBehavior(behavior);
-        }
 
         internal void SetBehaviorCrawl()
         {

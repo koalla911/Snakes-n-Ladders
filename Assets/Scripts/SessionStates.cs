@@ -17,15 +17,12 @@ namespace SnakesNLadders.Assets.Scripts
 
         public void Restart()
         {
-            Debug.Log("restart");
-            //SceneManager.LoadScene(_currentScene);
+            SceneManager.LoadScene(_currentScene);
         }
 
         public void Exit()
         {
-            Debug.Log("quit");
-
-            //Application.Quit();
+            Application.Quit();
         }
     }
 }

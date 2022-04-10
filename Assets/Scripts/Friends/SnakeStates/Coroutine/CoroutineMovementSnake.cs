@@ -15,7 +15,6 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
         private DetectorReaction _detectorReaction;
 
         private bool _isDetect;
-        private bool _isDropped;
 
         private Vector3 _positionOffset;
         private float _rotationSpeed = 5f;
@@ -27,7 +26,6 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
             _detectorReaction.OnDetectionRun += Detect;
 
             _isDetect = false;
-            _isDropped = false;
         }
 
 
@@ -51,11 +49,11 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
         {
             return _isDetect = true;
         }
-        
-        
-        public bool Dropped()
+
+
+        public void Dropped()
         {
-            return _isDropped = true;
+            StopAllCoroutines();
         }
         
 
@@ -63,6 +61,16 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
         {
             _snake.SetBehaviorCrawl();
 
+            yield return StartCoroutine(Crawl());
+
+            _snake.SetBehaviorDance();
+
+            yield return StartCoroutine(CharacterFollow());
+        }
+
+
+        private IEnumerator Crawl()
+        {
             while (_isDetect != true)
             {
                 Vector3 sourcePosition = this.transform.position;
@@ -76,17 +84,17 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
 
                 yield return null;
             }
+        }
 
-            _snake.SetBehaviorDance();
 
-            while (_isDropped != true)
+        private IEnumerator CharacterFollow()
+        {
+            while (true)
             {
                 _snake.transform.position = _character.transform.position + _positionOffset;
 
                 yield return null;
             }
-
-            yield break;
         }
 
 

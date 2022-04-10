@@ -14,6 +14,8 @@ namespace SnakesNLadders.Assets.Scripts.Level
         private int _poolCount = 1;
 
         private readonly float _gap = 15f;
+        private readonly int _meters = 5;
+        private int _metersCount = 0;
         private Vector3 _startPosition;
 
         private LevelActivatorTrigger _startLevel;
@@ -45,6 +47,8 @@ namespace SnakesNLadders.Assets.Scripts.Level
                 _levelsActive[i] = levelActive;
 
                 _startPosition.y += _gap;
+                _metersCount += _meters;
+                levelActive.SetMeterCount(_metersCount);
             }
 
             _startLevel = _levelsActive[0];
@@ -76,6 +80,7 @@ namespace SnakesNLadders.Assets.Scripts.Level
             _finishLevel = _startLevel;
             LevelActivatorTrigger finishLevelPotActivator = _finishLevel.GetComponent<LevelActivatorTrigger>();
             finishLevelPotActivator.ActivatePot();
+            finishLevelPotActivator.SetMeterCount(_meters * _active);
 
 
             _levelCount++;

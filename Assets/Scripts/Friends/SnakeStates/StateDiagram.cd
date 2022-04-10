@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SnakesNLadders.Assets.Scripts.SnakeStates.SnakeBehaviorCrawl" Collapsed="true">
+    <Position X="4.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAACAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Friends\SnakeStates\SnakeBehaviorCrawl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SnakesNLadders.Assets.Scripts.SnakeStates.SnakeBehaviorDance" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQACAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Friends\SnakeStates\SnakeBehaviorDance.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SnakesNLadders.Assets.Scripts.SnakeStates.SnakeBehaviorDrop" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAIgAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Friends\SnakeStates\SnakeBehaviorDrop.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SnakesNLadders.Assets.Scripts.SnakeStates.Snake">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAUAAAAAAAABABAAAQAAACAAAAAAAAAEAIAAQAAEA=</HashCode>
+      <FileName>Assets\Scripts\Friends\SnakeStates\Snake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SnakesNLadders.Assets.Scripts.SnakeStates.InitialBehaviorMapSnake">
+    <Position X="2.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGEA=</HashCode>
+      <FileName>Assets\Scripts\Friends\SnakeStates\InitialBehaviorMapSnake.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SnakesNLadders.Assets.Scripts.SnakeStates.ISnakeBehavior" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Friends\SnakeStates\ISnakeBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

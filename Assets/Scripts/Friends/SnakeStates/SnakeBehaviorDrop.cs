@@ -8,17 +8,11 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates
         private int _snakeValue = 1;
 
 
-        public void EnterState(Snake snake)
+        public void EnterState(Snake snake, Rigidbody2D rigidbody, Transform transform, Animator animator)
         {
-            Rigidbody2D snakeRigidbody = snake.gameObject.GetComponent<Rigidbody2D>();
+            transform.rotation = new Quaternion(Random.Range(-90, 90), Random.Range(-90, 90), 0, 0);
 
-            Transform snakeTransform = snake.gameObject.GetComponent<Transform>();
-            snakeTransform.rotation = new Quaternion(Random.Range(-90, 90), Random.Range(-90, 90), 0, 0);
-
-            Drop(snakeRigidbody);
-
-            SingletoneData.SingletoneDataInstance.SetScoreValue(_snakeValue);
-
+            Drop(rigidbody);
         }
 
 

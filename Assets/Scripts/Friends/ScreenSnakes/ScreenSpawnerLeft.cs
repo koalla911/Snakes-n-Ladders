@@ -11,6 +11,8 @@ namespace SnakesNLadders.Assets.Scripts.Friends.ScreenSnakes
         [SerializeField] private InteractableScreenSnake[] _interactablePrefabs;
         [SerializeField] private StateTriggerDownfall _character;
 
+        [SerializeField] private float _waitForSec = 10f;
+
         private ConcreteScreenSpawner _spawner;
         private int _poolCount = 5;
         private Transform _parent;
@@ -21,7 +23,6 @@ namespace SnakesNLadders.Assets.Scripts.Friends.ScreenSnakes
         private bool _flipVer = false;
         private Vector3 _offsetPosition;
 
-        private float _waitForSec = 3f;
         private WaitForSeconds _waitFor;
         private int _numberOfActiveSnakes;
 
@@ -66,17 +67,20 @@ namespace SnakesNLadders.Assets.Scripts.Friends.ScreenSnakes
 
         private IEnumerator SnakeActivate()
         {
-            while (_isSnakeActivate)
+            for (int i = 0; i < _poolCount; i++)
             {
-                yield return _waitFor;
+                if (_isSnakeActivate)
+                {
+                    yield return _waitFor;
 
-                float offsetY = Random.Range(-7, 8);
-                float offsetZ = Random.Range(-1, 1);
-                _offsetPosition = new Vector3(0f, offsetY, offsetZ);
+                    float offsetY = Random.Range(-7, 10);
+                    float offsetZ = Random.Range(-1, 1);
+                    _offsetPosition = new Vector3(0f, offsetY, offsetZ);
 
-                StartCoroutine(SetActiveCoroutine(_offsetPosition, _rotation, _flipHor, _flipVer));
+                    StartCoroutine(SetActiveCoroutine(_offsetPosition, _rotation, _flipHor, _flipVer));
 
-                yield return _waitFor;
+                    yield return _waitFor;
+                }
             }
         }
 
@@ -87,7 +91,6 @@ namespace SnakesNLadders.Assets.Scripts.Friends.ScreenSnakes
             var interactable = activeObject.gameObject.GetComponent<InteractableScreenSnake>();
             interactable.PopulationActivate(_targetAppearance, _snakeActiveSpeed, _snakeAnimationDuration);
 
-            Debug.Log("snake movement start");
 
             yield return null;
 

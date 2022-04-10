@@ -17,7 +17,7 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates
         {
             _behaviourMap = new Dictionary<Type, ISnakeBehavior>();
 
-            _behaviourMap[typeof(SnakeBehaviorSpawn)] = new SnakeBehaviorSpawn();
+            //_behaviourMap[typeof(SnakeBehaviorSpawn)] = new SnakeBehaviorSpawn();
             _behaviourMap[typeof(SnakeBehaviorCrawl)] = new SnakeBehaviorCrawl();
             _behaviourMap[typeof(SnakeBehaviorDance)] = new SnakeBehaviorDance();
             _behaviourMap[typeof(SnakeBehaviorDrop)] = new SnakeBehaviorDrop();

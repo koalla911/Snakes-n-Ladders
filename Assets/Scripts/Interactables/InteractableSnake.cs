@@ -12,16 +12,19 @@ namespace SnakesNLadders.Assets.Scripts.Interactables
         private SnakeStates.Snake _snake;
         private CoroutineMovementSnake _movement;
 
+
         private void Awake()
         {
             ComponentReference();
         }
+
 
         public void ComponentReference()
         {
             _movement = _snakeParent.GetComponent<CoroutineMovementSnake>();
             _snake = _snakeParent.GetComponent<SnakeStates.Snake>();
         }
+
 
         public void Interact()
         {
