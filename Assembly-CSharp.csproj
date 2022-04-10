@@ -93,7 +93,6 @@
     <Compile Include="Assets\Scripts\Interactables\InteractableSloth.cs" />
     <Compile Include="Assets\Scripts\Interactables\InteractableMonkey.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraResolution.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterStamina.cs" />
     <Compile Include="Assets\Scripts\Views\UIScore.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolActivateTriggerSnake.cs" />
     <Compile Include="Assets\Scripts\Pooler\PoolActivateCoroutineSnake.cs" />

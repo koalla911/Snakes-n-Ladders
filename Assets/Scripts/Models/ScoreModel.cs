@@ -3,50 +3,50 @@ using UnityEngine;
 
 namespace SnakesNLadders.Assets.Scripts
 {
-    public class ScoreModel
+    public class ScoreModel : MonoBehaviour
     {
-        /*public static ScoreModel SingletoneDataInstance
-        {
-            get
-            {
-                return _singletoneDataInstance;
-            }
+		public static ScoreModel Instance
+		{
+			get
+			{
+				return instance;
+			}
 
-        }*/
+		}
 
-        //private static ScoreModel _singletoneDataInstance;
+		private static ScoreModel instance;
 
 
         public delegate void ChangeScore(int score);
         public event ChangeScore OnChangeScore;
-        
-        /*public delegate void ChangeCoin(int score);
-        public event ChangeCoin OnChangeCoin;*/
 
-        public int CurrentScore { get { return _sourceScore; } }
-        //public int CurrentCoin { get { return _sourceCoin; } }
-
-        private int _sourceScore = 0;
-        //private int _sourceCoin = 0;
+		public delegate void ChangeCoin(int score);
+		public event ChangeCoin OnChangeCoin;
 
 
-        /*private void Awake()
+		public int sourceScore = 0;
+		public int sourceCoin = 0;
+		public int snakeValue = 1;
+		public int coinValue = 1;
+
+
+		private void Awake()
+		{
+			instance = gameObject.GetComponent<ScoreModel>();
+		}
+
+
+		public void SetScoreValue(int difference)
         {
-            _singletoneDataInstance = gameObject.GetComponent<ScoreModel>();
-        }*/
-
-
-        public void SetScoreValue(int difference)
-        {
-            _sourceScore += difference;
-            OnChangeScore?.Invoke(_sourceScore);
+            sourceScore += difference;
+            OnChangeScore?.Invoke(sourceScore);
         }
 
 
-        /*public void SetCoinValue(int difference)
-        {
-            _sourceCoin += difference;
-            OnChangeCoin?.Invoke(_sourceCoin);
-        }*/
-    }
+		public void SetCoinValue(int difference)
+		{
+			sourceCoin += difference;
+			OnChangeCoin?.Invoke(sourceCoin);
+		}
+	}
 }

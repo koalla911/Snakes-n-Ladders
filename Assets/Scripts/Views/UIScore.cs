@@ -15,36 +15,36 @@ namespace SnakesNLadders.Assets.Scripts
         private int _startCoin = 0;
 
 
-        /*private void OnEnable()
-        {
-            ScoreModel.SingletoneDataInstance.OnChangeScore += SetScoreText;
-            ScoreModel.SingletoneDataInstance.OnChangeCoin += SetCoinText;
-        }*/
+		private void OnEnable()
+		{
+			ScoreModel.Instance.OnChangeScore += SetScoreText;
+			ScoreModel.Instance.OnChangeCoin += SetCoinText;
+		}
 
 
-        private void Awake()
-        {
-            _scoreTMP.SetText("{0}", _startScore);
-            _coinTMP.SetText("{0}", _startCoin);
-        }
+		private void Awake()
+		{
+			_scoreTMP.SetText("{0}", _startScore);
+			_coinTMP.SetText("{0}", _startCoin);
+		}
 
 
-        private void SetScoreText(int score)
-        {
-            _scoreTMP.SetText("{0}", score);
-        }
-        
-
-        private void SetCoinText(int coin)
-        {
-            _coinTMP.SetText("{0}", coin);
-        }
+		private void SetScoreText(int score)
+		{
+			_scoreTMP.SetText("{0}", score);
+		}
 
 
-        /*private void OnDisable()
-        {
-            ScoreModel.SingletoneDataInstance.OnChangeScore -= SetScoreText;
-            ScoreModel.SingletoneDataInstance.OnChangeCoin -= SetCoinText;
-        }*/
-    }
+		private void SetCoinText(int coin)
+		{
+			_coinTMP.SetText("{0}", coin);
+		}
+
+
+		private void OnDisable()
+		{
+			ScoreModel.Instance.OnChangeScore -= SetScoreText;
+			ScoreModel.Instance.OnChangeCoin -= SetCoinText;
+		}
+	}
 }
