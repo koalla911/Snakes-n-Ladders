@@ -21,12 +21,17 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
 		}
 
 
-		internal IEnumerator SetActiveCoroutine(PoolMono<Snake> pool, int[] coefficient)
+		internal IEnumerator SetActiveCoroutine(PoolMono<Snake> pool, int[] coefficient, GameObject target)
 		{
 			for (int j = 0; j < coefficient.Length; j++)
 			{
 				for (int i = 0; i < coefficient[j]; i++)
 				{
+					if (!target.activeInHierarchy)
+					{
+						yield break;
+
+					}
 					Snake objectActive = pool.GetFreeElement();
 					Rigidbody2D activeRigidBody = objectActive.GetComponent<Rigidbody2D>();
 					activeRigidBody.gravityScale = 0;
@@ -39,6 +44,7 @@ namespace SnakesNLadders.Assets.Scripts.Pooler
 			}
 
 			yield break;
+			
 		}
 
 	}

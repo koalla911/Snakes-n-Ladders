@@ -41,7 +41,10 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
 		public void StartMovement()
 		{
 			_positionOffset = new Vector3(Random.Range(-1.1f, 1.1f), Random.Range(-1.3f, 1.3f), 0);
-			StartCoroutine(Movement());
+			if (_character.activeInHierarchy)
+			{
+				StartCoroutine(Movement());
+			}
 		}
 
 
@@ -60,18 +63,20 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
 		internal IEnumerator Movement()
 		{
 			_snake.SetBehaviorCrawl();
+			if (_character.gameObject.activeInHierarchy)
+			{
+				yield return StartCoroutine(Crawl());
 
-			yield return StartCoroutine(Crawl());
+				_snake.SetBehaviorDance();
 
-			_snake.SetBehaviorDance();
-
-			yield return StartCoroutine(CharacterFollow());
+				yield return StartCoroutine(CharacterFollow());
+			}
 		}
 
 
 		private IEnumerator Crawl()
 		{
-			while (_isDetect != true)
+			while (_isDetect != true && _character.gameObject.activeInHierarchy)
 			{
 				Vector3 sourcePosition = this.transform.position;
 				Vector3 targerPosition = _character.transform.position;
@@ -81,7 +86,10 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
 				float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
 				Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 				transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * _rotationSpeed);
-
+				if(!_character.gameObject.activeInHierarchy)
+				{
+					break;
+				}
 				yield return null;
 			}
 		}
@@ -89,7 +97,7 @@ namespace SnakesNLadders.Assets.Scripts.SnakeStates.Coroutine
 
 		private IEnumerator CharacterFollow()
 		{
-			while (true)
+			while (_character.gameObject.activeInHierarchy)
 			{
 				_snake.transform.position = _character.transform.position + _positionOffset;
 

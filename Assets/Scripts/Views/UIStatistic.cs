@@ -9,9 +9,9 @@ namespace SnakesNLadders.Assets.Scripts.UIViews
     public class UIStatistic : MonoBehaviour
     {
         [SerializeField] private StateTriggerDownfall _character;
-        [SerializeField] private GameObject _pausePanel;
+        public Canvas gameOverCanvas;
 
-        [SerializeField] private GameObject[] _statsText;
+        /*[SerializeField] private GameObject[] _statsText;
         [SerializeField] private GameObject[] _statsValue;
         
         private TextMeshProUGUI[] _statsTextComponent;
@@ -21,11 +21,11 @@ namespace SnakesNLadders.Assets.Scripts.UIViews
 
         private float _waitForSec = 0.5f;
         private WaitForSeconds _waitFor;
-
+*/
 
         private void OnEnable()
         {
-            _waitFor = new WaitForSeconds(_waitForSec);
+            //_waitFor = new WaitForSeconds(_waitForSec);
 
             _character.OnCharacterDisable += StatisticWindow;
         }
@@ -33,10 +33,9 @@ namespace SnakesNLadders.Assets.Scripts.UIViews
 
         private void Awake()
         {
-            _pauseCanvas = _pausePanel.GetComponent<Canvas>();
-            _pauseCanvas.enabled = false;
+			gameOverCanvas.gameObject.SetActive(false);
 
-            _statsTextComponent = new TextMeshProUGUI[_statsText.Length];
+            /*_statsTextComponent = new TextMeshProUGUI[_statsText.Length];
             _statsValueComponent = new TextMeshProUGUI[_statsValue.Length];
 
             for (int i = 0; i < _statsText.Length; i++)
@@ -46,19 +45,19 @@ namespace SnakesNLadders.Assets.Scripts.UIViews
 
                 _statsTextComponent[i].enabled = false;
                 _statsValueComponent[i].enabled = false;
-            }
+            }*/
         }
 
 
         private void StatisticWindow()
         {
-            _pauseCanvas.enabled = true;
+			gameOverCanvas.gameObject.SetActive(true);
 
-            StartCoroutine(StatisticShowsUp());
-        }
+			//StartCoroutine(StatisticShowsUp());
+		}
 
 
-        private IEnumerator StatisticShowsUp()
+		/*private IEnumerator StatisticShowsUp()
         {
             for (int i = 0; i < _statsText.Length; i++)
             {
@@ -68,7 +67,7 @@ namespace SnakesNLadders.Assets.Scripts.UIViews
 
                 yield return _waitFor;
             }
-        }
+        }*/
 
 
         /*private IEnumerator StatisticValue()

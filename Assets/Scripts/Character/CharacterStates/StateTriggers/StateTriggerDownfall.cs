@@ -29,13 +29,13 @@ namespace SnakesNLadders.Assets.Scripts.Character.CharacterStates
         private void Downfall(GameObject detected)
         {
             _character.SetBehaviorDownfall();
-        }
+		}
 
 
-        private void OnBecameInvisible()
+		private void OnBecameInvisible()
         {
-            gameObject.SetActive(false);
-            OnCharacterDisable?.Invoke();
+			OnCharacterDisable?.Invoke();
+			gameObject.SetActive(false);
         }
 
 
